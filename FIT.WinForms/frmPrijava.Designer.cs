@@ -137,6 +137,7 @@
             Name = "frmPrijava";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "DLWMS :: Prijava";
+            Load += frmPrijava_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)err).EndInit();
             ResumeLayout(false);

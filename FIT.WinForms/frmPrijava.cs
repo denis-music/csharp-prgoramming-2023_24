@@ -1,6 +1,7 @@
 ﻿using FIT.Data;
 using FIT.Infrastructure;
 using FIT.WinForms.Helpers;
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -65,6 +66,11 @@ namespace FIT.WinForms
         {
             var registracija = new frmRegistracija();
             registracija.ShowDialog();
-            }
+        }
+
+        private void frmPrijava_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
