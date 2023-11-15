@@ -22,7 +22,7 @@ namespace FIT.ConsoleApp.Nastava
         private static void ProvjeraNullVrijednosti()
         {
             StudentService studentService = new StudentService();
-            Student student = studentService.GetByBrojIndeksa("IB220022");
+            cStudent student = studentService.GetByBrojIndeksa("IB220022");
             //student?.Semestri[1]?.Uplate[3]?.Iznos            
             Console.WriteLine(student?.Prezime);
             // uslov_ispunjen ? DA : NE;
@@ -32,9 +32,9 @@ namespace FIT.ConsoleApp.Nastava
         }
         private static void PodrazumijevaneVrijednosti()
         {
-            Student denis = null;
+            cStudent denis = null;
             denis.Indeks = "IB230032";
-            Student jasmin = new Student();
+            cStudent jasmin = new cStudent();
             jasmin.Indeks = "IB230032";
 
             int ? a = null;
@@ -48,7 +48,7 @@ namespace FIT.ConsoleApp.Nastava
             ocjene[0] = 1;
 
             sStudent[] prvaGodina = new sStudent[3];
-            Student[] drugaGodina = new Student[3];
+            cStudent[] drugaGodina = new cStudent[3];
 
             for (int i = 0; i < prvaGodina.Length; i++)
             {
@@ -58,7 +58,7 @@ namespace FIT.ConsoleApp.Nastava
             }
             for (int i = 0; i < drugaGodina.Length; i++)
             {
-                drugaGodina[i] = new Student();
+                drugaGodina[i] = new cStudent();
                 drugaGodina[i].Indeks = $"IB{230000 + i}";
                 drugaGodina[i].Ime = $"Ime{i}";
                 drugaGodina[i].Prezime = $"Prezime{i}";
@@ -70,8 +70,8 @@ namespace FIT.ConsoleApp.Nastava
         }
         private static void VrijednostiReference()
         {
-            Student denis1 = new Student() { Indeks = $"IB{230000}", Ime = $"Ime", Prezime = $"Prezime" };
-            Student denis2 = denis1;
+            cStudent denis1 = new cStudent() { Indeks = $"IB{230000}", Ime = $"Ime", Prezime = $"Prezime" };
+            cStudent denis2 = denis1;
             denis2.Indeks = "IB230032";
             Console.WriteLine(denis1);
             Console.WriteLine(denis2);
@@ -86,12 +86,12 @@ namespace FIT.ConsoleApp.Nastava
         private static void Slojevi()
         {
             StudentService studentService = new StudentService();
-            Student student = studentService.GetByBrojIndeksa("IB220022");
+            cStudent student = studentService.GetByBrojIndeksa("IB220022");
             Console.WriteLine(student);
         }
         private static void Override()
         {
-            Student denis = new Student();           
+            cStudent denis = new cStudent();           
 
             Console.WriteLine(denis);
             Console.WriteLine(denis.ToString());
@@ -100,7 +100,7 @@ namespace FIT.ConsoleApp.Nastava
         private static void BazniTip()
         {
             int godina = 2023;
-            Student denis = new Student();
+            cStudent denis = new cStudent();
 
             object oGodina = godina;
             object oDenis = denis;
@@ -109,9 +109,9 @@ namespace FIT.ConsoleApp.Nastava
         }
         private static void FromObject(object obj)
         {
-            if(obj is Student)
+            if(obj is cStudent)
             { 
-               (obj as Student).PredstaviSe();
+               (obj as cStudent).PredstaviSe();
             }
             else if (obj is int)
                 Console.WriteLine("Int");

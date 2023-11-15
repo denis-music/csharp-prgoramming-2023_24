@@ -21,12 +21,12 @@ namespace FIT.ConsoleApp.Nastava
 
         private static void In()
         {
-            Student denis = new Student("IB150051", "Denis", "Music");            
+            cStudent denis = new cStudent("IB150051", "Denis", "Music");            
             AlocirajIInicijalizujStudentaIn(in denis);
             Console.WriteLine(denis.Indeks);
         }
 
-        private static void AlocirajIInicijalizujStudentaIn(in Student obj)
+        private static void AlocirajIInicijalizujStudentaIn(in cStudent obj)
         {
             //obj = new Student("IB150051", "Denis", "Music");
             obj.Indeks = "IB160061";
@@ -35,7 +35,7 @@ namespace FIT.ConsoleApp.Nastava
 
         private static void Out()
         {
-            Student denis;
+            cStudent denis;
             AlocirajIInicijalizujStudentaOut(out denis);
 
             int rezultat;
@@ -43,20 +43,20 @@ namespace FIT.ConsoleApp.Nastava
                 Console.WriteLine($"Rezultat {rezultat}");
 
         }
-        private static void AlocirajIInicijalizujStudentaOut(out Student obj)
+        private static void AlocirajIInicijalizujStudentaOut(out cStudent obj)
         {
-            obj = new Student("IB150051", "Denis", "Music");
+            obj = new cStudent("IB150051", "Denis", "Music");
         }
 
         private static void Reference()
         {
-            Student denis = null;
+            cStudent denis = null;
             AlocirajIInicijalizujStudenta(ref denis);
         }
 
-        private static void AlocirajIInicijalizujStudenta(ref Student obj)
+        private static void AlocirajIInicijalizujStudenta(ref cStudent obj)
         {
-            obj = new Student("IB150051", "Denis", "Music");
+            obj = new cStudent("IB150051", "Denis", "Music");
         }
     }
 }

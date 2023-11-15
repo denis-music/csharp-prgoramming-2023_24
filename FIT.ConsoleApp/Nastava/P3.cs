@@ -96,13 +96,13 @@ namespace FIT.ConsoleApp.Nastava
             //ILogger logger = new DBLogger();
             //P3_1.Pokreni(bhtelecom, logger);          
 
-            Student denis = new Student("IB150051","Denis","Music");
+            cStudent denis = new cStudent("IB150051","Denis","Music");
             foreach (var ocjena in denis)//denis.GetEnumerator()
             {
                 Console.WriteLine(ocjena);
             }
 
-            using (Student denis2 = new Student("IB150051", "Denis", "Music"))
+            using (cStudent denis2 = new cStudent("IB150051", "Denis", "Music"))
             {
 
             }//denis2.Dispose()
@@ -110,7 +110,7 @@ namespace FIT.ConsoleApp.Nastava
         private static void Nasljedjivanje()
         {
             //Osoba denis = new Osoba("Denis","Music");
-            Osoba jasmin = new Student("IB150051", "Denis", "Music");
+            Osoba jasmin = new cStudent("IB150051", "Denis", "Music");
             //OsobaInfo(denis);
             OsobaInfo(jasmin);
 
@@ -118,10 +118,10 @@ namespace FIT.ConsoleApp.Nastava
 
         private static void OsobaInfo(Osoba osoba)
         {
-            if (osoba is Student)
+            if (osoba is cStudent)
             {
-                Student student1 = (Student)osoba;
-                Student student2 = osoba as Student; //dynamic_cast<Student*>(osoba)
+                cStudent student1 = (cStudent)osoba;
+                cStudent student2 = osoba as cStudent; //dynamic_cast<Student*>(osoba)
 
                 Console.WriteLine(student2);
             }else
@@ -130,7 +130,7 @@ namespace FIT.ConsoleApp.Nastava
 
         private static void Indekseri()
         {
-            Student denis = new Student();
+            cStudent denis = new cStudent();
             Console.WriteLine(denis[1]);
         }
 
@@ -170,11 +170,11 @@ namespace FIT.ConsoleApp.Nastava
         {
             int a = 0;
             var b = 0;
-            var denis = new Student();
+            var denis = new cStudent();
             var ime = "Denis";
 
-            Student jasmin = new ();
-            Osoba zanin = new Student();
+            cStudent jasmin = new ();
+            Osoba zanin = new cStudent();
 
 
             var ex = new SynchronizationLockException();

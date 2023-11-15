@@ -1,53 +1,19 @@
-﻿using System.Collections;
-using System.Reflection.Emit;
+﻿using System.Drawing;
 
 namespace FIT.Data
 {
-    public class Student : Osoba, IEnumerable, IDisposable
+    public class Student
     {
-        public Student():base(Vrijednosti.NotSet, Vrijednosti.NotSet)
-        {
-            Indeks = Vrijednosti.NotSet;
-        }
-        public Student(string indeks,string ime, string prezime):base(ime,prezime)
-        {
-            Indeks = indeks;
-        }
-
-        public int[] Ocjene = new int[] { 6, 6, 8, 9, 7 };
-        public int this[int lokacija] {
-            get { return Ocjene[lokacija]; }
-        }
-        public string Indeks { get; set; }      
-        public int ? Fakultet { get; set; }       
-
-        public override string ToString()
-        {
-            return $"{Indeks} {base.ToString()}";
-        }
-
-        public override void Info()
-        {
-            Console.WriteLine("Hello from info");
-        }
-
-        public IEnumerator GetEnumerator()
-        {
-            for (int i = 0; i < Ocjene.Length; i++)
-                yield return Ocjene[i];
-        }
-
-        public void Dispose()
-        {
-            Console.WriteLine("Dispose -> " + ToString());
-        }
-    }
-
-    public class sStudent
-    {
+        public int Id { get; set; }
         public string Indeks { get; set; }
+        public string Lozinka { get; set; }
         public string Ime { get; set; }
         public string Prezime { get; set; }
+        public string Email { get; set; }
+        public Image Slika { get; set; }//byte[]
+        public DateTime DatumRodjenja { get; set; }
+        public bool Aktivan { get; set; }
+        public int Semestar { get; set; }//SemestarId -- 1 - 8
         public override string ToString()
         {
             return $"{Indeks} {Ime} {Prezime}";

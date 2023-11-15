@@ -1,4 +1,5 @@
 using FIT.WinForms.Predavanja;
+using FIT.WinForms.Studenti;
 
 namespace FIT.WinForms
 {
@@ -13,7 +14,7 @@ namespace FIT.WinForms
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            var startnaForma = new frmMarketing();
+            var startnaForma = new frmStudentiPretraga();            
             Application.Run(startnaForma);
         }
     }
