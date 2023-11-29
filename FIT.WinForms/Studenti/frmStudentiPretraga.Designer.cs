@@ -36,6 +36,7 @@
             Semestar = new DataGridViewTextBoxColumn();
             Aktivan = new DataGridViewCheckBoxColumn();
             btnNoviStudent = new Button();
+            txtFilter = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dgvStudenti).BeginInit();
             SuspendLayout();
             // 
@@ -110,11 +111,20 @@
             btnNoviStudent.UseVisualStyleBackColor = true;
             btnNoviStudent.Click += btnNoviStudent_Click;
             // 
+            // txtFilter
+            // 
+            txtFilter.Location = new Point(12, 22);
+            txtFilter.Name = "txtFilter";
+            txtFilter.Size = new Size(660, 23);
+            txtFilter.TabIndex = 2;
+            txtFilter.TextChanged += txtFilter_TextChanged;
+            // 
             // frmStudentiPretraga
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(785, 308);
+            Controls.Add(txtFilter);
             Controls.Add(btnNoviStudent);
             Controls.Add(dgvStudenti);
             Name = "frmStudentiPretraga";
@@ -123,6 +133,7 @@
             Load += frmStudentiPretraga_Load;
             ((System.ComponentModel.ISupportInitialize)dgvStudenti).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -135,5 +146,6 @@
         private DataGridViewTextBoxColumn Semestar;
         private DataGridViewCheckBoxColumn Aktivan;
         private Button btnNoviStudent;
+        private TextBox txtFilter;
     }
 }

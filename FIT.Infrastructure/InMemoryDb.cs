@@ -12,8 +12,8 @@ namespace FIT.Infrastructure
         {
             return new List<Semestar>() {
                 new Semestar() { Id = 1, Aktivan = true, Oznaka = "1. SEM", Opis = "Prvi semestar I ciklusa studija" },
-                new Semestar() { Id = 2, Aktivan = true, Oznaka = "2. SEM", Opis = "Drugi semestar I ciklusa studija" },
-                new Semestar() { Id = 3, Aktivan = true, Oznaka = "3. SEM", Opis = "Treci semestar I ciklusa studija" },
+                new Semestar() { Id = 2, Aktivan = false, Oznaka = "2. SEM", Opis = "Drugi semestar I ciklusa studija" },
+                new Semestar() { Id = 3, Aktivan = false, Oznaka = "3. SEM", Opis = "Treci semestar I ciklusa studija" },
                 new Semestar() { Id = 4, Aktivan = true, Oznaka = "4. SEM", Opis = "Cetvrti semestar I ciklusa studija" }
 
             };
