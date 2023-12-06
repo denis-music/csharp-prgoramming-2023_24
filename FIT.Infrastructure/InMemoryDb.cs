@@ -7,6 +7,18 @@ namespace FIT.Infrastructure
         public static List<Korisnik> Korisnici = GenerisiKorisnike();
         public static List<Student> Studenti = GenerisiStudente();
         public static List<Semestar> Semestri = GenerisiSemestre();
+        public static List<Predmet> Predmeti = GenerisiPredmete();
+
+        private static List<Predmet> GenerisiPredmete()
+        {
+            return new List<Predmet>() {
+                new Predmet() { Id = 1, Naziv = "Programiranje I", Semestar = 1 },
+                new Predmet() { Id = 2, Naziv = "Programiranje II", Semestar = 2 },
+                new Predmet() { Id = 3, Naziv = "Racunarske mreze" , Semestar = 2},
+                new Predmet() { Id = 4, Naziv = "Matematika I", Semestar = 1 }
+
+            };
+        }
 
         private static List<Semestar> GenerisiSemestre()
         {

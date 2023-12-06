@@ -170,7 +170,7 @@ namespace FIT.WinForms.Studenti
             throw new NotImplementedException();
         }
 
-       
+
         private void btnNoviStudent_Click(object sender, EventArgs e)
         {
             frmStudentiNovi frmStudentiNovi = new frmStudentiNovi();
@@ -181,9 +181,17 @@ namespace FIT.WinForms.Studenti
 
         private void dgvStudenti_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            //Text = $"red -> {e.RowIndex} kolona -> {e.ColumnIndex}";
             var odabraniStudent = dgvStudenti.SelectedRows[0].DataBoundItem as Student;
-            frmStudentiNovi frmEditovanjeStudenta = new frmStudentiNovi(odabraniStudent);
-            frmEditovanjeStudenta.ShowDialog();
+
+            Form forma = null;
+
+            if (dgvStudenti.CurrentCell is DataGridViewButtonCell)            
+                forma = new frmStudentiPredmeti(odabraniStudent);            
+            else            
+                forma = new frmStudentiNovi(odabraniStudent);
+            
+            forma.ShowDialog();
         }
         private void UcitajStudente(List<Student> studenti = null)
         {

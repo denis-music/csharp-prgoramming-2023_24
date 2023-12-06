@@ -9,7 +9,7 @@
                 validanUnos = false;
             else if (kontrola is ComboBox && (kontrola as ComboBox).SelectedIndex < 0)
                 validanUnos = false;
-            else if (kontrola is TextBox && !(kontrola as TextBox).Text.IsSet())
+            else if (kontrola is TextBox && !(kontrola as TextBox).Text.Postavljen())
                 validanUnos = false;
 
             if (!validanUnos)

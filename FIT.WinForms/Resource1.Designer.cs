@@ -70,6 +70,15 @@ namespace FIT.WinForms {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Odabrani predmet je već dodat.
+        /// </summary>
+        internal static string DuplicatedCourse {
+            get {
+                return ResourceManager.GetString("DuplicatedCourse", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to @edu.fit.ba.
         /// </summary>
         internal static string EmailDomain {
