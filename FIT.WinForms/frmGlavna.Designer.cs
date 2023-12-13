@@ -38,6 +38,7 @@
             Name = "frmGlavna";
             Text = "frmGlavna";
             WindowState = FormWindowState.Maximized;
+            Load += frmGlavna_Load;
             ResumeLayout(false);
         }
 

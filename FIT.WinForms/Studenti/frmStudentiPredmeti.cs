@@ -19,6 +19,7 @@ namespace FIT.WinForms.Studenti
     public partial class frmStudentiPredmeti : Form
     {
         private Student? student;
+       
 
         public frmStudentiPredmeti(Student student)
         {
@@ -38,7 +39,7 @@ namespace FIT.WinForms.Studenti
         {
             lblIndeks.Text = $"{student.Indeks}";
             lblImePrezime.Text = $"{student.Ime} {student.Prezime}";
-            pbSlika.Image = student.Slika;
+            pbSlika.Image = student.Slika.ToImage();
 
         }
 

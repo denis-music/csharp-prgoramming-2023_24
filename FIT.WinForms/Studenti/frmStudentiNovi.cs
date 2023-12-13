@@ -2,6 +2,8 @@
 using FIT.Infrastructure;
 using FIT.WinForms.Helpers;
 
+using Microsoft.EntityFrameworkCore;
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,7 +22,7 @@ namespace FIT.WinForms.Studenti
     public partial class frmStudentiNovi : Form
     {
         private Student _student;
-
+        DLWMSDbContext baza = new DLWMSDbContext();
         public frmStudentiNovi(Student student = null)
         {
             InitializeComponent();
@@ -56,7 +58,7 @@ namespace FIT.WinForms.Studenti
             txtLozinka.Text = _student.Lozinka;
             txtPrezime.Text = _student.Prezime;
             cmbSemestri.SelectedValue = _student.Semestar;
-            pbSlika.Image = _student.Slika;
+            pbSlika.Image = _student.Slika.ToImage();
         }
 
         private void GenerisiLozinku()
@@ -116,13 +118,20 @@ namespace FIT.WinForms.Studenti
                 _student.Lozinka = txtLozinka.Text;
                 _student.Prezime = txtPrezime.Text;
                 _student.Semestar = (int)cmbSemestri.SelectedValue;
-                _student.Slika = pbSlika.Image;
+                _student.Slika = pbSlika.Image.ToByteArray();
 
                 if(_student.Id == 0)
                 {
-                    _student.Id = InMemoryDb.Studenti.Count + 1;
-                    InMemoryDb.Studenti.Add(_student);
-                }
+                    //_student.Id = InMemoryDb.Studenti.Count + 1;
+                    //InMemoryDb.Studenti.Add(_student);
+                    baza.Studenti.Add(_student);
+                }else
+                    baza.Entry(_student).State = EntityState.Modified;
+
+
+                baza.SaveChanges();
+
+
                 this.DialogResult = DialogResult.OK;
                 Close();
             }

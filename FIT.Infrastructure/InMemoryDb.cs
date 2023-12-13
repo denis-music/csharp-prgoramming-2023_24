@@ -1,7 +1,36 @@
 ﻿using FIT.Data;
 
+using Microsoft.EntityFrameworkCore;
+
+using System.Configuration;
+
 namespace FIT.Infrastructure
 {
+
+    public class DLWMSDbContext : DbContext
+    {
+        //C:\Users\online\Desktop
+        private readonly string dbPutanja;// = "Data Source = C:\\Users\\online\\Desktop\\DLWMS.db";
+
+        public DLWMSDbContext()
+        {
+            dbPutanja = ConfigurationManager.
+                ConnectionStrings["DLWMSBaza"].ConnectionString;
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlite(dbPutanja);
+        }
+
+        public DbSet<Predmet> Predmeti { get; set; }
+        public DbSet<Student> Studenti { get; set; }
+
+
+    }
+
+
+
     public class InMemoryDb
     {
         public static List<Korisnik> Korisnici = GenerisiKorisnike();
@@ -19,7 +48,6 @@ namespace FIT.Infrastructure
 
             };
         }
-
         private static List<Semestar> GenerisiSemestre()
         {
             return new List<Semestar>() {

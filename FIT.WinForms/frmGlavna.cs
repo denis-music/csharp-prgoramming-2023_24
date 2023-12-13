@@ -16,5 +16,10 @@ namespace FIT.WinForms
         {
             InitializeComponent();
         }
+
+        private void frmGlavna_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

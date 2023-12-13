@@ -19,6 +19,8 @@ namespace FIT.WinForms.Studenti
 {
     public partial class frmStudentiPretraga : Form
     {
+        DLWMSDbContext baza = new DLWMSDbContext();
+
         public frmStudentiPretraga()
         {
             InitializeComponent();
@@ -196,7 +198,7 @@ namespace FIT.WinForms.Studenti
         private void UcitajStudente(List<Student> studenti = null)
         {
             dgvStudenti.DataSource = null;
-            dgvStudenti.DataSource = studenti ?? InMemoryDb.Studenti;
+            dgvStudenti.DataSource = studenti ?? baza.Studenti.ToList();
         }
 
         private void txtFilter_TextChanged(object sender, EventArgs e)
@@ -208,11 +210,11 @@ namespace FIT.WinForms.Studenti
             //    student.Prezime.ToLower().Contains(filter) ||
             //    student.Indeks.ToLower().Contains(filter)).ToList();
 
-            var rezultat = InMemoryDb.Studenti.Where(FiltrirajStudente).ToList();
+            var rezultat = baza.Studenti.Where(FiltrirajStudente).ToList();
             UcitajStudente(rezultat);
 
             //var rezultat = InMemoryDb.Studenti.Where(FiltrirajStudente).ToList();
-            UcitajStudente(InMemoryDb.Studenti.Where(FiltrirajStudente).ToList());
+            //UcitajStudente(InMemoryDb.Studenti.Where(FiltrirajStudente).ToList());
 
         }
         private bool FiltrirajStudente(Student student)
