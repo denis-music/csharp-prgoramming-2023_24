@@ -4,6 +4,8 @@ namespace FIT.Data
 {
     public class Student
     {
+        public ICollection<Uloga> Uloga { get; set; } = new HashSet<Uloga>();
+
         public int Id { get; set; }
         public string Indeks { get; set; }
         public string Lozinka { get; set; }
@@ -13,7 +15,10 @@ namespace FIT.Data
         public byte[] Slika { get; set; }//byte[]
         public DateTime DatumRodjenja { get; set; }
         public bool Aktivan { get; set; }
-        public int Semestar { get; set; }//SemestarId -- 1 - 8
+        
+        public int SemestarId { get; set; }//SemestarId -- 1 - 8
+        public Semestar Semestar { get; set; }
+
         public override string ToString()
         {
             return $"{Indeks} {Ime} {Prezime}";
@@ -29,16 +34,5 @@ namespace FIT.Data
             PolozeniPredmeti = new List<PolozeniPredmet>();
         }
 
-    }
-    public class PolozeniPredmet
-    {
-        public int Id { get; set; }
-        public int StudentId { get; set; }
-        public Student Student { get; set; }
-        public int PredmetId { get; set; }
-        public Predmet Predmet { get; set; }
-        public int Ocjena  { get; set; }
-        public DateTime DatumPolaganja { get; set; }
-        public string Napomena { get; set; }
     }
 }

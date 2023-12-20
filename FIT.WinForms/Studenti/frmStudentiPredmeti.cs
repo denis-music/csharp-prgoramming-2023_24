@@ -15,11 +15,12 @@ using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 namespace FIT.WinForms.Studenti
-{
+{   
+
     public partial class frmStudentiPredmeti : Form
     {
         private Student? student;
-       
+        DLWMSDbContext baza = new DLWMSDbContext();
 
         public frmStudentiPredmeti(Student student)
         {
@@ -45,7 +46,7 @@ namespace FIT.WinForms.Studenti
 
         private void UcitajPredmete()
         {
-            cmbPredmeti.UcitajPodatke(InMemoryDb.Predmeti);
+            cmbPredmeti.UcitajPodatke(baza.Predmeti.ToList());//InMemoryDb.Predmeti);
 
             //cmbPredmeti.DataSource = InMemoryDb.Predmeti;
             //cmbPredmeti.DisplayMember = "Naziv";
@@ -55,7 +56,9 @@ namespace FIT.WinForms.Studenti
         private void UcitajPolozenePredemte()
         {
             dgvPolozeniPredmeti.DataSource = null;
-            dgvPolozeniPredmeti.DataSource = student.PolozeniPredmeti;
+            dgvPolozeniPredmeti.DataSource =
+                baza.PolozeniPredmeti.Where(pp => pp.StudentId == student.Id).ToList();
+                //student.PolozeniPredmeti;
         }
 
         private void btnDodaj_Click(object sender, EventArgs e)
@@ -92,13 +95,17 @@ namespace FIT.WinForms.Studenti
 
                 var polozeni = new PolozeniPredmet()
                 {
-                    Id = student.PolozeniPredmeti.Count + 1,
+                   // Id = student.PolozeniPredmeti.Count + 1,
                     DatumPolaganja = dtpDatumPolaganja.Value,
                     Ocjena = int.Parse(cmbOcjene.Text),
-                    Predmet = predmet,
-                    PredmetId = predmet.Id
+                    //Predmet = predmet,
+                    PredmetId = predmet.Id,
+                    StudentId = student.Id, 
+                    Napomena = "...."
                 };
-                student.PolozeniPredmeti.Add(polozeni);
+                //student.PolozeniPredmeti.Add(polozeni);
+                baza.PolozeniPredmeti.Add(polozeni);
+                baza.SaveChanges();
                 UcitajPolozenePredemte();
             }
 

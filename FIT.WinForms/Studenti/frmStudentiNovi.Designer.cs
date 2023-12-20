@@ -51,14 +51,20 @@
             openFileDialog1 = new OpenFileDialog();
             btnOdabirSlike = new Button();
             errorProvider1 = new ErrorProvider(components);
+            dgvUloge = new DataGridView();
+            Naziv = new DataGridViewTextBoxColumn();
+            cmbUloge = new ComboBox();
+            btnDodajUlogu = new Button();
+            clbUloge = new CheckedListBox();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbSlika).BeginInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvUloge).BeginInit();
             SuspendLayout();
             // 
             // btnSpasi
             // 
-            btnSpasi.Location = new Point(454, 273);
+            btnSpasi.Location = new Point(758, 270);
             btnSpasi.Name = "btnSpasi";
             btnSpasi.Size = new Size(75, 23);
             btnSpasi.TabIndex = 2;
@@ -260,11 +266,64 @@
             // 
             errorProvider1.ContainerControl = this;
             // 
+            // dgvUloge
+            // 
+            dgvUloge.AllowUserToAddRows = false;
+            dgvUloge.AllowUserToDeleteRows = false;
+            dgvUloge.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvUloge.Columns.AddRange(new DataGridViewColumn[] { Naziv });
+            dgvUloge.Location = new Point(535, 59);
+            dgvUloge.Name = "dgvUloge";
+            dgvUloge.ReadOnly = true;
+            dgvUloge.RowTemplate.Height = 25;
+            dgvUloge.Size = new Size(298, 150);
+            dgvUloge.TabIndex = 15;
+            // 
+            // Naziv
+            // 
+            Naziv.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Naziv.DataPropertyName = "Naziv";
+            Naziv.HeaderText = "Naziv";
+            Naziv.Name = "Naziv";
+            Naziv.ReadOnly = true;
+            // 
+            // cmbUloge
+            // 
+            cmbUloge.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbUloge.FormattingEnabled = true;
+            cmbUloge.Location = new Point(535, 31);
+            cmbUloge.Name = "cmbUloge";
+            cmbUloge.Size = new Size(202, 23);
+            cmbUloge.TabIndex = 16;
+            // 
+            // btnDodajUlogu
+            // 
+            btnDodajUlogu.Location = new Point(743, 31);
+            btnDodajUlogu.Name = "btnDodajUlogu";
+            btnDodajUlogu.Size = new Size(90, 23);
+            btnDodajUlogu.TabIndex = 17;
+            btnDodajUlogu.Text = "Dodaj ulogu";
+            btnDodajUlogu.UseVisualStyleBackColor = true;
+            btnDodajUlogu.Click += btnDodajUlogu_Click;
+            // 
+            // clbUloge
+            // 
+            clbUloge.CheckOnClick = true;
+            clbUloge.FormattingEnabled = true;
+            clbUloge.Location = new Point(839, 59);
+            clbUloge.Name = "clbUloge";
+            clbUloge.Size = new Size(220, 148);
+            clbUloge.TabIndex = 18;
+            // 
             // frmStudentiNovi
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(541, 305);
+            ClientSize = new Size(1111, 305);
+            Controls.Add(clbUloge);
+            Controls.Add(btnDodajUlogu);
+            Controls.Add(cmbUloge);
+            Controls.Add(dgvUloge);
             Controls.Add(btnOdabirSlike);
             Controls.Add(pbSlika);
             Controls.Add(btnSpasi);
@@ -277,6 +336,7 @@
             groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pbSlika).EndInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvUloge).EndInit();
             ResumeLayout(false);
         }
 
@@ -304,5 +364,10 @@
         private Button btnOdabirSlike;
         private Button btnNovaLozinka;
         private ErrorProvider errorProvider1;
+        private Button btnDodajUlogu;
+        private ComboBox cmbUloge;
+        private DataGridView dgvUloge;
+        private DataGridViewTextBoxColumn Naziv;
+        private CheckedListBox clbUloge;
     }
 }
