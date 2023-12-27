@@ -1,6 +1,7 @@
 ﻿using FIT.Data;
 using FIT.Infrastructure;
 using FIT.WinForms.Helpers;
+using FIT.WinForms.Izvjestaji;
 
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,7 @@ using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 namespace FIT.WinForms.Studenti
-{   
+{
 
     public partial class frmStudentiPredmeti : Form
     {
@@ -58,7 +59,7 @@ namespace FIT.WinForms.Studenti
             dgvPolozeniPredmeti.DataSource = null;
             dgvPolozeniPredmeti.DataSource =
                 baza.PolozeniPredmeti.Where(pp => pp.StudentId == student.Id).ToList();
-                //student.PolozeniPredmeti;
+            //student.PolozeniPredmeti;
         }
 
         private void btnDodaj_Click(object sender, EventArgs e)
@@ -95,12 +96,12 @@ namespace FIT.WinForms.Studenti
 
                 var polozeni = new PolozeniPredmet()
                 {
-                   // Id = student.PolozeniPredmeti.Count + 1,
+                    // Id = student.PolozeniPredmeti.Count + 1,
                     DatumPolaganja = dtpDatumPolaganja.Value,
                     Ocjena = int.Parse(cmbOcjene.Text),
                     //Predmet = predmet,
                     PredmetId = predmet.Id,
-                    StudentId = student.Id, 
+                    StudentId = student.Id,
                     Napomena = "...."
                 };
                 //student.PolozeniPredmeti.Add(polozeni);
@@ -116,5 +117,18 @@ namespace FIT.WinForms.Studenti
             Validator.ProvjeriUnos(cmbPredmeti, errorProvider1, Kljucevi.ReqiredValue) &&
                 Validator.ProvjeriUnos(cmbOcjene, errorProvider1, Kljucevi.ReqiredValue);
         }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            var dtoUvjerenje = new dtoPrint()
+            {
+                BrojIndeksa = student.Indeks,
+                ImePrezime = $"{student.Ime} {student.Prezime}",
+                PolozeniPredmeti = dgvPolozeniPredmeti.DataSource as List<PolozeniPredmet>
+            };
+            var print = new frmIzvjestaji(dtoUvjerenje);
+            print.ShowDialog();
+        }
     }
+
 }

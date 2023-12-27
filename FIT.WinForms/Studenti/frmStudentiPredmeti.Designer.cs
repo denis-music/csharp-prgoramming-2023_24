@@ -44,6 +44,7 @@
             lblIndeks = new Label();
             pbSlika = new PictureBox();
             lblImePrezime = new Label();
+            btnPrint = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvPolozeniPredmeti).BeginInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbSlika).BeginInit();
@@ -179,11 +180,22 @@
             lblImePrezime.Size = new Size(0, 25);
             lblImePrezime.TabIndex = 10;
             // 
+            // btnPrint
+            // 
+            btnPrint.Location = new Point(436, 326);
+            btnPrint.Name = "btnPrint";
+            btnPrint.Size = new Size(117, 23);
+            btnPrint.TabIndex = 11;
+            btnPrint.Text = "Printaj uvjerenje";
+            btnPrint.UseVisualStyleBackColor = true;
+            btnPrint.Click += btnPrint_Click;
+            // 
             // frmStudentiPredmeti
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(575, 331);
+            ClientSize = new Size(566, 359);
+            Controls.Add(btnPrint);
             Controls.Add(lblImePrezime);
             Controls.Add(pbSlika);
             Controls.Add(lblIndeks);
@@ -223,5 +235,6 @@
         private Label lblIndeks;
         private PictureBox pbSlika;
         private Label lblImePrezime;
+        private Button btnPrint;
     }
 }
