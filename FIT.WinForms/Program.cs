@@ -1,3 +1,4 @@
+using FIT.WinForms.Asinhrono;
 using FIT.WinForms.Izvjestaji;
 using FIT.WinForms.Predavanja;
 using FIT.WinForms.Predmeti;
@@ -16,7 +17,7 @@ namespace FIT.WinForms
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            var startnaForma = new frmStudentiPretraga(); //frmStudentiPretraga();            
+            var startnaForma = new frmPing(); //frmStudentiPretraga();            
             Application.Run(startnaForma);
         }
     }
