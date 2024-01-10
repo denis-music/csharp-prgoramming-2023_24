@@ -72,6 +72,7 @@
             // 
             txtLozinka.Location = new Point(241, 109);
             txtLozinka.Name = "txtLozinka";
+            txtLozinka.PasswordChar = '*';
             txtLozinka.Size = new Size(258, 23);
             txtLozinka.TabIndex = 2;
             txtLozinka.Text = "admin";

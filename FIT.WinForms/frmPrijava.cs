@@ -34,15 +34,18 @@ namespace FIT.WinForms
                     {
                         if (korisnik.Aktivan)
                         {
-                            MessageBox.Show($"" +
-                                $"{Resursi.Get(Kljucevi.Welcome)} {korisnik}",
-                                Resursi.Get(Kljucevi.Info),
-                                MessageBoxButtons.OKCancel,
-                                MessageBoxIcon.Information);
+                            //MessageBox.Show($"" +
+                            //    $"{Resursi.Get(Kljucevi.Welcome)} {korisnik}",
+                            //    Resursi.Get(Kljucevi.Info),
+                            //    MessageBoxButtons.OKCancel,
+                            //    MessageBoxIcon.Information);
 
                             Aplikacija.PrijavljeniKorisnik = korisnik;
+                            this.Hide();
                             var glavnaForma = new frmGlavna();
-                            glavnaForma.Show();
+                            if (glavnaForma.ShowDialog() == DialogResult.OK)
+                                this.Show();
+
                         }
                         else
                             MessageBox.Show($"{korisnik}, {Resursi.Get(Kljucevi.AccountNotActive)}  ");

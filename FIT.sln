@@ -5,11 +5,13 @@ VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FIT.ConsoleApp", "FIT.ConsoleApp\FIT.ConsoleApp.csproj", "{54326F23-A92D-4993-B62A-A85B311078AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FIT.Data", "FIT.Data\FIT.Data.csproj", "{ACCC8569-FF63-491F-B0F3-291FB044D0FA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FIT.Data", "FIT.Data\FIT.Data.csproj", "{ACCC8569-FF63-491F-B0F3-291FB044D0FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FIT.WinForms", "FIT.WinForms\FIT.WinForms.csproj", "{1D9CB7E0-5069-43E6-ACE8-CD67D4197328}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FIT.WinForms", "FIT.WinForms\FIT.WinForms.csproj", "{1D9CB7E0-5069-43E6-ACE8-CD67D4197328}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FIT.Infrastructure", "FIT.Infrastructure\FIT.Infrastructure.csproj", "{03499195-25D5-4FF2-AAEE-38E3240C8516}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FIT.Infrastructure", "FIT.Infrastructure\FIT.Infrastructure.csproj", "{03499195-25D5-4FF2-AAEE-38E3240C8516}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "FIT.Setup", "FIT.Setup\FIT.Setup.vdproj", "{E0B195FC-53F4-40E9-9EF3-F9EC922C8A84}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,8 @@ Global
 		{03499195-25D5-4FF2-AAEE-38E3240C8516}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03499195-25D5-4FF2-AAEE-38E3240C8516}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{03499195-25D5-4FF2-AAEE-38E3240C8516}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0B195FC-53F4-40E9-9EF3-F9EC922C8A84}.Debug|Any CPU.ActiveCfg = Debug
+		{E0B195FC-53F4-40E9-9EF3-F9EC922C8A84}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
